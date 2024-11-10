@@ -140,7 +140,7 @@
 
 
 <!--Contact-->
-<div id="contact">
+<div id="contact ">
     <div class="container">
         <div class="row">
             <div class="contact-left">
@@ -154,14 +154,14 @@
                 </div>
             </div>
             <div class="contact-right">
-                <form name="contact_form" method="POST" netlify>
+                <form name="submit-to-google-sheet" method="POST" netlify>
                     <h1 class="sub-title">Did we miss anything?</h1>
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type='email' name="email" placeholder="Your E-mail" required>
                     <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                     <button type="submit" class="btn btn2">Submit</button>
                 </form>
-                <span id='msg'></span>
+                <span id='msg' onclick="btnclick()"></span>
             </div>
         </div>
     </div>
@@ -197,15 +197,15 @@
 </script>
 
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzFeGXcwnzSe_LOXhGYjcEY6gJ6M29aAVqBa-QkQTRvTTRDLbILTPG6OI0eoGSCNmUH/exec'
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbzSkc5eOIzTY8Ra1p4uQ0Q1eS6734q6Isq1HGNtN8teXpNW3PwJc5EBqaHQkKf5WWpw/exec'
     const form = document.forms['submit-to-google-sheet']
-    const msg=document.getElementById('msg')
+    const msg=document.getElementById("msg")
 
     form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML='Message sent successfully'
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response =>{
+            msg.innerHTML="Message Sent Successfully "
             setTimeout(function(){
                 msg.innerHTML=""
             },5000)
